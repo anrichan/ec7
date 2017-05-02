@@ -1,0 +1,8 @@
+
+<span><%= link_to "index", home_index_path %></span>
+<%# binding.pry %>
+<% @purchases.includes(:product).each do |b| %>
+  <p><%= b.user.email %></p>
+  <p><%= b.product.product_name%></p>
+
+<% end %>

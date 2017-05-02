@@ -1,0 +1,11 @@
+<% @products.each do |b| %>
+  <tr>
+   <td><%= b.product_name %></td>
+   <td><strong>¥</strong>
+   <%= b.product.price %>
+   </td>
+   <td><%= b.product.select_item%></td>
+  </tr>
+  <strong><%= b.current_user.email %></strong>.
+
+<% end %>

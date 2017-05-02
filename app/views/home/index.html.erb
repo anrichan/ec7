@@ -1,0 +1,35 @@
+<h1>Home#index</h1>
+ <% if admin_signed_in? %> 
+<%= link_to "商品入力", new_product_path %>
+
+<p><%= link_to "購入一覧",   purchases_path %></p>
+<span><%= link_to "index",products_path %></span>
+
+
+
+<table>
+<%= page_entries_info @products %>
+<% current_admin.products.each do |product| %>
+<tr>
+<td><%= link_to product.product_name,product_path(product.id) %></td>
+
+<td><strong>¥</strong>
+<%= product.price %>
+</td>
+<td><%= product.select_item%></td>
+
+<td><%= link_to "edit", edit_product_path(product.id) %></td>
+<td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+
+
+<% end %>
+  
+<% end %>
+<% if user_signed_in? %> 
+ <span><%= link_to "index",products_path %></span>
+</table>
+
+<% end %>
+<%= paginate @products, outer_window: 4 %>
+

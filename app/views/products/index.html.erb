@@ -1,0 +1,22 @@
+<h1>product#index</h1>
+<%= page_entries_info @products %>
+
+<table>
+<% @products.each do |product| %>
+<tr>
+<td><%= link_to product.product_name,product_path(product.id) %></td>
+
+<td><strong>¥</strong>
+<%= product.price %>
+</td>
+<td><%= product.select_item%></td>
+
+
+</tr>
+<% end %>
+</table>
+
+<%= paginate @products, outer_window: 4 %>
+
+
+
